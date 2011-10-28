@@ -59,7 +59,8 @@ To run the test, just type
 
 == Thanks
 
-Dave Thomas from http://pragprog.com made speed improvements in 2003.
+Dave Thomas from http://pragprog.com made speed improvements early version posted on 
+Martin Porter's website.
 
 == License
 

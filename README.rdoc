@@ -59,8 +59,8 @@ To run the test, just type
 
 == Thanks
 
-Dave Thomas from http://pragprog.com made speed improvements early version posted on 
-Martin Porter's website.
+Dave Thomas from http://pragprog.com made speed improvements to this code
+before it was packaged as a gem.
 
 == License
 

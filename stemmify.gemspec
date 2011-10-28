@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.email = "raypereda@gmail.com"
   s.files = ["Rakefile", "init.rb", "lib/stemmify.rb", "bin/stem"]
   s.test_files = ["test/test_stemmify.rb", "test/input.txt", "test/output.txt"]
-  s.homepage = "http://rubygems.org/gems/stemmify"
+  s.homepage = "http://github.com/raypereda/stemmify"
   s.require_paths = ["lib"]
   s.rubygems_version = "0.0.1"
   s.summary = "Stemming reducing an inflected word to its root form (approximately). For example, running reduces to run."

@@ -41,7 +41,7 @@ map all the words to their roots using the stem method.
 
 Here's an example usage in irb
 
-	require 'rubygems'
+<tt>	require 'rubygems'
 	require 'stemmify'
 	user_search_terms  = ["continually", "observating", "corruption"]
 	index_search_terms = []
@@ -53,6 +53,7 @@ Here's an example usage in irb
 	#	continu
 	#	observ
 	#	corrupt
+</tt>
 
 == Test Suite
 

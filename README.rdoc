@@ -45,11 +45,9 @@ Here's an example usage in irb
 	require 'stemmify'
 	user_search_terms  = ["continually", "observating", "corruption"]
 	index_search_terms = []
-
 	user_search_terms.each {|term|
 	   index_search_terms << term.stem
-	} 
-
+	}
 	puts index_search_terms
 	# Output:
 	#	continu

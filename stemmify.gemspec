@@ -11,7 +11,6 @@ Gem::Specification.new do |s|
   s.test_files = ["test/test_stemmify.rb", "test/input.txt", "test/output.txt"]
   s.homepage = "http://rubygems.org/gems/stemmify"
   s.require_paths = ["lib"]
-  s.autorequire = "stemmify"
   s.rubygems_version = "0.0.1"
   s.summary = "Stemming reducing an inflected word to its root form (approximately). For example, running reduces to run."
 end

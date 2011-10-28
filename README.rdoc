@@ -30,7 +30,12 @@ Martin Porter explains:
 
 == Install
 
-  gem install raypereda-stemmify --source http://gems.github.com
+  sudo gem install stemmify
+    or
+  gem install stemmify
+
+Note that while the source code is hosted github, the actual gem
+is hosted on RubyGem.org
 
 == Usage
 
@@ -41,8 +46,8 @@ map all the words to their roots using the stem method.
 
 Here's an example usage:
 	
-		require 'stemmify'
-		print("continually".stem) # ==> "continu"
+  require 'stemmify'
+  print("observations".stem) # ==> "observ"
 
 == Test Suite
 
@@ -54,7 +59,7 @@ To run the test, just type
 
 == Thanks
 
-Dave Thomas from http://pragprog.com/ made speed improvements in 2003.
+Dave Thomas from http://pragprog.com made speed improvements in 2003.
 
 == License
 

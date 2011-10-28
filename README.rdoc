@@ -41,19 +41,8 @@ map all the words to their roots using the stem method.
 
 Here's an example usage:
 	
-		require 'rubygems'
 		require 'stemmify'
-		user_search_terms  = ["continually", "observating", "corruption"]
-		index_search_terms = []
-		user_search_terms.each {|term|
-		   index_search_terms << term.stem
-		}
-		puts index_search_terms
-		# Output: ["continu", "observ", "corrupt"]
-
-On github the rdoc for the text above seems to be ill formatted. Here's a another try
-To use, require both rubygems and stemmify. Now every String has the new .stem() method
-that returns the root form of that word.
+		print("continually".stem) # ==> "continu"
 
 == Test Suite
 

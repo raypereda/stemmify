@@ -1,0 +1,94 @@
+= Stemmify
+
+This is a Rails gem for reducing words to their roots. For example, all the
+following words to are stemmed to "observ", which is not a real word
+in this case:
+	observance
+	observances
+	observancy
+	observant
+	observants
+	observation
+	observe
+	observed
+	observer
+	observers
+	observing
+	observingly
+
+The algorithm used here is based on the Porter stemmer.
+You can read more about Martin Porter's stemmer at 
+
+http://tartarus.org/~martin/PorterStemmer/
+
+Dr. Porter explains as:
+
+	The Porter stemming algorithm (or ‘Porter stemmer’) is a process for removing
+	the commoner morphological and inflexional endings from words in English. Its
+	main use is as part of a term normalisation process that is usually done when
+	setting up Information Retrieval systems.
+
+== Install
+
+  gem install raypereda-stemmify --source http://gems.github.com
+
+== Usage
+
+Let's say you building some sort of search tool. You want
+searches for "observations" and "observer" to all bring up
+the same items. When you are building you index, you can
+map all the words to their roots using the stem method.
+
+Here's an example usage in irb
+
+	$irb
+	>> require 'rubygems'
+	=> true
+	>> require 'stemmify'
+	=> true
+	>> user_search_terms  = ["continually", "observating", "corruption"]
+	=> ["continually", "observating", "corruption"]
+	>> index_search_terms = []
+	=> []
+	>> 
+	?> user_search_terms.each {|term|
+	?>    index_search_terms << term.stem
+	>> } 
+	=> ["continually", "observating", "corruption"]
+	>> 
+	?> puts index_search_terms
+	continu
+	observ
+	corrupt
+	=> nil
+
+== Test Suite
+
+This test is based on the sample input and output text from Martin Porter
+website. It includes 23532 test words and their expected stem results.
+To run the test, just type
+
+  rake test
+
+== License
+
+Copyright (c) 2011 Ray Pereda
+ 
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+ 
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+ 
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

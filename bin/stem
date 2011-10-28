@@ -1,0 +1,9 @@
+#!/usr/bin/ruby
+require 'stemmify'
+
+$stdin.each do |word|
+  puts word.chomp.stem + "\n"
+end
+
+
+

@@ -41,26 +41,20 @@ map all the words to their roots using the stem method.
 
 Here's an example usage in irb
 
-		$irb
-		>> require 'rubygems'
-		=> true
-		>> require 'stemmify'
-		=> true
-		>> user_search_terms  = ["continually", "observating", "corruption"]
-		=> ["continually", "observating", "corruption"]
-		>> index_search_terms = []
-		=> []
-		>> 
-		?> user_search_terms.each {|term|
-		?>    index_search_terms << term.stem
-		>> } 
-		=> ["continually", "observating", "corruption"]
-		>> 
-		?> puts index_search_terms
-		continu
-		observ
-		corrupt
-		=> nil
+	require 'rubygems'
+	require 'stemmify'
+	user_search_terms  = ["continually", "observating", "corruption"]
+	index_search_terms = []
+
+	user_search_terms.each {|term|
+	   index_search_terms << term.stem
+	} 
+
+	puts index_search_terms
+	# Output:
+	#	continu
+	#	observ
+	#	corrupt
 
 == Test Suite
 

@@ -10,6 +10,9 @@
 # See also http://www.tartarus.org/~martin/PorterStemmer
 #
 # Send comments to raypereda (at) gmail.com
+# RDoc stuff.
+# :title: Stemmify - Ruby based Porter Stemmer
+
 
 module Stemmify
 

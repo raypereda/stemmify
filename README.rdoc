@@ -1,5 +1,6 @@
 = Stemmify
 
+== Description
 This is a Rails gem for reducing words to their roots. For example, all the
 following words to are stemmed to "observ", which is not a real word
 in this case:
@@ -30,16 +31,16 @@ Martin Porter explains:
 
 == Install
 
-  sudo gem install stemmify
-    or
-  gem install stemmify
+  $ sudo gem install stemmify
+or
+  $ gem install stemmify
 
-Note that while the source code is hosted github, the actual gem
-is hosted on RubyGem.org
+Note that while the source code is hosted on {github}[https://github.com/raypereda/stemmify],
+the actual gem is hosted on {RubyGem.org}[https://rubygems.org/gems/stemmify].
 
 == Usage
 
-Let's say you building some sort of search tool. You want
+Let's say you are building some sort of search tool. You want
 searches for "observations" and "observer" to all bring up
 the same items. When you are building you index, you can
 map all the words to their roots using the stem method.
@@ -53,11 +54,11 @@ You can use <tt>stemmify</tt> as a command line tool:
   $ stem input_file.txt
   $ printf "I\nwalked\nin\nthe\nforest\n.\n" | stem
 
-Both file based input and the input taken from the stdin should be tokenized,
-i.e. provided one token per line, tokens should be delimeted e.g. by a new line feed. 
+Both the file based input and the input taken from the stdin should be tokenized,
+i.e. provide one token per line, tokens should be delimeted e.g. by a new line feed. 
 
 For tokenization consider using a tokenizer, for instance the
-[tokenizer]{https://rubygems.org/gems/tokenizer} gem.
+{tokenizer}[https://rubygems.org/gems/tokenizer] gem.
 
 == Test Suite
 

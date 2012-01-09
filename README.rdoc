@@ -49,6 +49,12 @@ Here's an example usage:
   require 'stemmify'
   print("observations".stem) # ==> "observ"
 
+You can use <emph>stemmify</emph> as a command line tool:
+  $ stem input_file.txt
+  $ printf "I\nwalked\nin\nthe\nforest\n.\n" | stem
+
+Both file based input and the input taken from the stdin should be tokenized,
+i.e. one token per line, token should be delemeted by a new line feed. 
 == Test Suite
 
 This test is based on the sample input and output text from Martin Porter

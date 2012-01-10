@@ -1,8 +1,9 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
+
 require 'stemmify'
 
-$stdin.each do |word|
-  puts word.chomp.stem + "\n"
+while line = gets
+  puts line.chomp.stem
 end
 
 

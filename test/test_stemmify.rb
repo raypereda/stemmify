@@ -2,7 +2,6 @@ require 'test/unit'
 require 'stemmify'
 
 class StemmifyTest < Test::Unit::TestCase
-
   def read_as_array(filename)
     file = File.open(filename)
 
@@ -23,5 +22,4 @@ class StemmifyTest < Test::Unit::TestCase
       assert_equal(output_words[i], input_words[i].stem, "input: " + input_words[i])
     end  
   end
-  
 end

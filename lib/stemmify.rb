@@ -122,7 +122,6 @@ module Stemmify
     if w =~ SUFFIX_1_REGEXP
       stem = $`
       suffix = $1
-      # print "stem= " + stem + "\n" + "suffix=" + suffix + "\n"
       if stem =~ MGR0
         w = stem + STEP_2_LIST[suffix]
       end

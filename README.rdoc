@@ -15,7 +15,6 @@ in this case:
 	observer
 	observers
 	observing
-	observingly
 
 The algorithm used here is based on the Porter stemmer.
 You can read more about Martin Porter's stemmer at

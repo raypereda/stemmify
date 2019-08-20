@@ -3,13 +3,7 @@ require 'stemmify'
 
 class StemmifyTest < Test::Unit::TestCase
   def read_as_array(filename)
-    file = File.open(filename)
-
-    lines = []
-    file.each { |line|
-      lines << line.chomp
-    }
-    return lines
+    File.readlines(filename, chomp: true)
   end
 
   def test_stem
@@ -18,8 +12,8 @@ class StemmifyTest < Test::Unit::TestCase
     input_words  = read_as_array("test/input.txt")
     output_words = read_as_array("test/output.txt")
 
-    for i in 0 ... input_words.length()
-      assert_equal(output_words[i], input_words[i].stem, "input: " + input_words[i])
-    end  
+    input_words.each_with_index do |input, i|
+      assert_equal(output_words[i], input.stem, "input: " + input)
+    end
   end
 end

@@ -105,10 +105,10 @@ module Stemmify
       stem = $`
       if stem =~ VOWEL_IN_STEM
         w = stem
-      case w
-        when /(at|bl|iz)$/             then w << "e"
-        when /([^aeiouylsz])\1$/       then w.chop!
-        when /^#{CC}#{V}[^aeiouwxy]$/o then w << "e"
+        case w
+          when /(at|bl|iz)$/             then w << "e"
+          when /([^aeiouylsz])\1$/       then w.chop!
+          when /^#{CC}#{V}[^aeiouwxy]$/o then w << "e"
         end
       end
     end

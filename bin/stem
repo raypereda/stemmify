@@ -5,6 +5,3 @@ require 'stemmify'
 while line = gets
   puts line.chomp.stem
 end
-
-
-

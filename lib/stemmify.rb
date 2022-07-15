@@ -13,9 +13,7 @@
 # RDoc stuff.
 # :title: Stemmify - Ruby based Porter Stemmer
 
-
 module Stemmify
-
   STEP_2_LIST = {
     'ational'=>'ate', 'tional'=>'tion', 'enci'=>'ence', 'anci'=>'ance',
     'izer'=>'ize', 'bli'=>'ble',
@@ -25,12 +23,11 @@ module Stemmify
     'ousness'=>'ous', 'aliti'=>'al',
     'iviti'=>'ive', 'biliti'=>'ble', 'logi'=>'log'
   }
-  
+
   STEP_3_LIST = {
     'icate'=>'ic', 'ative'=>'', 'alize'=>'al', 'iciti'=>'ic',
     'ical'=>'ic', 'ful'=>'', 'ness'=>''
   }
-
 
   SUFFIX_1_REGEXP = /(
                     ational  |
@@ -55,13 +52,12 @@ module Stemmify
                     biliti   |
                     logi)$/x
 
-
   SUFFIX_2_REGEXP = /(
                       al       |
                       ance     |
                       ence     |
                       er       |
-                      ic       | 
+                      ic       |
                       able     |
                       ible     |
                       ant      |
@@ -76,7 +72,6 @@ module Stemmify
                       ive      |
                       ize)$/x
 
-
   C = "[^aeiou]"         # consonant
   V = "[aeiouy]"         # vowel
   CC = "#{C}(?>[^aeiouy]*)"  # consonant sequence
@@ -86,49 +81,47 @@ module Stemmify
   MEQ1 = /^(#{CC})?#{VV}#{CC}(#{VV})?$/o       # [cc]vvcc[vv] is m=1
   MGR1 = /^(#{CC})?#{VV}#{CC}#{VV}#{CC}/o      # [cc]vvccvvcc... is m>1
   VOWEL_IN_STEM   = /^(#{CC})?#{V}/o                      # vowel in stem
-  
-  def stem_porter
 
+  def stem_porter
     # make a copy of the given object and convert it to a string.
     w = self.dup.to_str
-    
+
     return w if w.length < 3
-    
+
     # now map initial y to Y so that the patterns never treat it as vowel
     w[0] = 'Y' if w[0] == ?y
-    
+
     # Step 1a
     if w =~ /(ss|i)es$/
       w = $` + $1
-    elsif w =~ /([^s])s$/ 
+    elsif w =~ /([^s])s$/
       w = $` + $1
     end
 
     # Step 1b
     if w =~ /eed$/
-      w.chop! if $` =~ MGR0 
+      w.chop! if $` =~ MGR0
     elsif w =~ /(ed|ing)$/
       stem = $`
-      if stem =~ VOWEL_IN_STEM 
+      if stem =~ VOWEL_IN_STEM
         w = stem
-	    case w
-        when /(at|bl|iz)$/             then w << "e"
-        when /([^aeiouylsz])\1$/       then w.chop!
-        when /^#{CC}#{V}[^aeiouwxy]$/o then w << "e"
+        case w
+          when /(at|bl|iz)$/             then w << "e"
+          when /([^aeiouylsz])\1$/       then w.chop!
+          when /^#{CC}#{V}[^aeiouwxy]$/o then w << "e"
         end
       end
     end
 
-    if w =~ /y$/ 
+    if w =~ /y$/
       stem = $`
-      w = stem + "i" if stem =~ VOWEL_IN_STEM 
+      w = stem + "i" if stem =~ VOWEL_IN_STEM
     end
 
     # Step 2
     if w =~ SUFFIX_1_REGEXP
       stem = $`
       suffix = $1
-      # print "stem= " + stem + "\n" + "suffix=" + suffix + "\n"
       if stem =~ MGR0
         w = stem + STEP_2_LIST[suffix]
       end
@@ -157,7 +150,7 @@ module Stemmify
     end
 
     #  Step 5
-    if w =~ /e$/ 
+    if w =~ /e$/
       stem = $`
       if (stem =~ MGR1) ||
           (stem =~ MEQ1 && stem !~ /^#{CC}#{V}[^aeiouwxy]$/o)
@@ -178,7 +171,6 @@ module Stemmify
   # make the stem_porter the default stem method, just in case we
   # feel like having multiple stemmers available later.
   alias stem stem_porter
-
 end
 
 # add the stem method to all Strings

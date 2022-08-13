@@ -13,6 +13,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 #  s.rubygems_version = "0.0.1"
   s.summary = "Stemming reducing an inflected word to its root form (approximately). For example, running reduces to run."
-  s.add_development_dependency('rdoc', '>=3.9.1')
-end
 
+  s.add_development_dependency 'rake'
+  s.add_development_dependency('rdoc', '>=3.9.1')
+  s.add_development_dependency 'test-unit'
+end
